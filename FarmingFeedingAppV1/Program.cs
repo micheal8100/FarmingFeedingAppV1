@@ -14,25 +14,29 @@ namespace FarmingFeedingAppV1
            
             string breed = SM.GetSheepBreeds()[2];
             int age = 10;
-            bool alive = true;
-            List<int> FoodPerDay = new List<int>() {500, 490, 600, 530, 400, 600, 560 };
+            List<int> FoodPerDay = new List<int>() {500, 900, 600, 530, 400, 600, 560 };
+
+            if (SM.CheckAge(age))
+            {
+                if (SM.checkFoodPerDay(FoodPerDay))
+                {
+                    // frist sheep
+                    SM.addSheep(new Sheep(age, breed, FoodPerDay));
+                    Sheep testSheep1 = (new Sheep(age, breed, FoodPerDay));
+                    Console.WriteLine(testSheep1.summary(SM.CostPerGram(), SM.NumberOfSheep()));
+                    Console.WriteLine(SM.allSummary(SM.CostPerGram()));
+                }
+                else
+                {
+                    Console.WriteLine("ERROR: Your sheep couldn't of eating this much");
+                }
+            }
+            else
+            {
+                Console.WriteLine("ERROR: Its imposable for a sheep to be this age");
+            }
+
             
-            
-
-            // frist sheep
-            SM.addSheep(new Sheep(age, breed, FoodPerDay));
-            Sheep testSheep1 = (new Sheep(age, breed, FoodPerDay));
-
-            //secound sheep
-            Sheep testSheep2 = (new Sheep(age, breed, FoodPerDay));
-            SM.addSheep(new Sheep(age, breed, FoodPerDay));
-
-            Console.WriteLine(testSheep1.summary(SM.CostPerGram(), SM.NumberOfSheep()));
-
-            
-            Console.WriteLine(testSheep2.summary(SM.CostPerGram(), SM.NumberOfSheep()));
-
-            Console.WriteLine(SM.allSummary(SM.CostPerGram()));
 
             Console.WriteLine();
         }

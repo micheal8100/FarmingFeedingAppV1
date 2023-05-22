@@ -26,6 +26,31 @@ namespace FarmingFeedingAppV1
         {
 
         }
+        // Check Age 0 < x > 40
+        public bool CheckAge(int age)
+        {
+            if (age > 0 && age < 30)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool checkFoodPerDay(List<int> foodPerDay)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                if (foodPerDay[i] >= 0 && foodPerDay[i] < 5000)
+                {
+                    
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
+
+        }
         // return sheepbreed list
         public List<string> GetSheepBreeds()
         {
@@ -47,7 +72,7 @@ namespace FarmingFeedingAppV1
             List<float> weeklyCostPerBreed = new List<float>() { 0, 0, 0, 0, 0 };
             int sheepCount = 0;
 
-            foreach (Sheep sheep in sheeps )
+            foreach (Sheep sheep in sheeps)
             {
                 for (int i = 0; i < sheepBreeds.Count(); i++)
                 {
