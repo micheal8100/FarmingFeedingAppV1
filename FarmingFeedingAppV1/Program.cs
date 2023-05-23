@@ -23,7 +23,7 @@ namespace FarmingFeedingAppV1
                     // frist sheep
                     SM.addSheep(new Sheep(age, breed, FoodPerDay));
                     Sheep testSheep1 = (new Sheep(age, breed, FoodPerDay));
-                    Console.WriteLine(testSheep1.summary(SM.CostPerGram(), SM.NumberOfSheep()));
+                    Console.WriteLine(testSheep1.summary(SM.CostPerGram(), SM.NumberOfSheep(), SM.determineHealth(testSheep1.overWeeksFood())));
                     Console.WriteLine(SM.allSummary(SM.CostPerGram()));
                 }
                 else

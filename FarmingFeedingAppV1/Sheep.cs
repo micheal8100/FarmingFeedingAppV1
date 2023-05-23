@@ -39,23 +39,7 @@ namespace FarmingFeedingAppV1
             id = breed.Substring(0, 2).ToUpper() + NumberOfSheep + $"#{age}";
             return id;
         }
-        //based on foodPerDay List Determines if a sheep is healthy
-        public string determineHealth()
-        {
-            if (overWeeksFood() > 4500)
-            {
-                return "Eating to much food";
-            }
-            else if (overWeeksFood() < 2100)
-            {
-                return "Eating to little food";
-            }
-            else
-            {
-                return "Eating average food"; 
-            } 
-            
-        }
+        
         // returns total food over the week
         public float overWeeksFood()
         {
@@ -67,7 +51,7 @@ namespace FarmingFeedingAppV1
             return OverWeek;
         }
         //Creates a Food Summary for the week
-        public string foodSum()
+        private string foodSum()
         {
             string foodSum = "";
             for (int i = 0; i < FoodPerDay.Count; i++)
@@ -82,9 +66,9 @@ namespace FarmingFeedingAppV1
             return (float)Math.Round((overWeeksFood() * costPerGram), 2);
         }
         //Creates a over all food and Cost summary
-        public string summary(float costPerGram, int NumberOfSheep)
+        public string summary(float costPerGram, int NumberOfSheep, string determineHealth)
         {
-            return "Breed: "+breed + "\n" + "ID: " + idGenorater(NumberOfSheep) + "\n" + determineHealth() + "\n\n" + foodSum() + "\n" +
+            return "Breed: "+breed + "\n" + "ID: " + idGenorater(NumberOfSheep) + "\n" + determineHealth + "\n\n" + foodSum() + "\n" +
                "Total Food Consumed: " + overWeeksFood() + "\nCost: $" + costSum(costPerGram) + "\n";
         }
         public override string ToString()

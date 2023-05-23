@@ -35,6 +35,24 @@ namespace FarmingFeedingAppV1
             }
             return false;
         }
+        //based on foodPerDay List Determines if a sheep is healthy
+        public string determineHealth(float overWeeksFood)
+        {
+            if (overWeeksFood > 4500)
+            {
+                return "Eating to much food";
+            }
+            else if (overWeeksFood < 2100)
+            {
+                return "Eating to little food";
+            }
+            else
+            {
+                return "Eating average food";
+            }
+
+        }
+        // checks to see if any value out of the range 
         public bool checkFoodPerDay(List<int> foodPerDay)
         {
             for (int i = 0; i < 6; i++)
@@ -92,7 +110,7 @@ namespace FarmingFeedingAppV1
             return sheeps.Count();
         }
 
-        // returns a cost sumary for all breeds and runs the  CalculattotalCostPerBreed() method
+        // returns a cost sumary for all breeds 
         public string allBreedCostSum(float costPerGram)
         {
             
@@ -105,6 +123,7 @@ namespace FarmingFeedingAppV1
 
             return breedSum;
         }
+        // calculates the over cost for all sheep
         public float overAllCost(float costPerGram)
         {
             float totalCost = 0;
@@ -114,10 +133,10 @@ namespace FarmingFeedingAppV1
             }
             return totalCost;
         }
-        // Retruns a sumary of all added sheep and adds the 
+        // Retruns a overall sumary of all added sheep
         public string allSummary(float costPerGram)
         {
-            return "Weekly Feeding Cost Summary\n\n" + allBreedCostSum(costPerGram);
+            return "Weekly Feeding Cost Summary\n\n" + allBreedCostSum(costPerGram) + "\nOverall Cost: $" + overAllCost(costPerGram);
         }
     }
 }
