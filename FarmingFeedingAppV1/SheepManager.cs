@@ -50,7 +50,6 @@ namespace FarmingFeedingAppV1
             {
                 return "Eating average food";
             }
-
         }
         // checks to see if any value out of the range 
         public bool checkFoodPerDay(List<int> foodPerDay)
@@ -139,4 +138,4 @@ namespace FarmingFeedingAppV1
             return "Weekly Feeding Cost Summary\n\n" + allBreedCostSum(costPerGram) + "\nOverall Cost: $" + overAllCost(costPerGram);
         }
     }
-}
+}  
